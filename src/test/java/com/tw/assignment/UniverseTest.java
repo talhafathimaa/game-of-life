@@ -26,4 +26,26 @@ public class UniverseTest {
 
         assertEquals(expectedNextGenerationAlive, actualNextGenerationAlive);
     }
+
+    @Test
+    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBoatPattern() {
+        HashSet<Cell> alive = new HashSet<>();
+        alive.add(new Cell(0, 1));
+        alive.add(new Cell(1, 0));
+        alive.add(new Cell(2, 1));
+        alive.add(new Cell(0, 2));
+        alive.add(new Cell(1, 2));
+        HashSet<Cell> expectedNextGenerationAlive = new HashSet<>();
+        expectedNextGenerationAlive.add(new Cell(0, 1));
+        expectedNextGenerationAlive.add(new Cell(1, 0));
+        expectedNextGenerationAlive.add(new Cell(2, 1));
+        expectedNextGenerationAlive.add(new Cell(0, 2));
+        expectedNextGenerationAlive.add(new Cell(1, 2));
+        Universe universe = new Universe(alive);
+
+        universe.tick();
+        HashSet<Cell> actualNextGenerationAlive = universe.getNextGenerationAlive();
+
+        assertEquals(expectedNextGenerationAlive, actualNextGenerationAlive);
+    }
 }
