@@ -18,10 +18,8 @@ public class Universe {
                 nextGenerationAlive.add(cell);
             }
             for (Cell neighbour : cell.neighbours()) {
-                if (!alive.contains(neighbour)) {
-                    if (aliveNeighbourCount(neighbour) == 3) {
-                        nextGenerationAlive.add(neighbour);
-                    }
+                if (!alive.contains(neighbour) && aliveNeighbourCount(neighbour) == 3) {
+                    nextGenerationAlive.add(neighbour);
                 }
             }
         }

@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Cell {
     private final int xCoordinate;
     private final int yCoordinate;
-    private HashSet<Cell> neighbours;
+    private final HashSet<Cell> neighbours;
 
     public Cell(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
