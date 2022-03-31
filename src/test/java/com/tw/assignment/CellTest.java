@@ -18,18 +18,18 @@ public class CellTest {
     @Test
     void shouldReturnTheCorrectNeighbourCellsForAnyCell() {
         Cell cell = new Cell(1, 1);
-        HashSet<Cell> expectedNeighbourCells = new HashSet<>();
-        expectedNeighbourCells.add(new Cell(0, 0));
-        expectedNeighbourCells.add(new Cell(1, 0));
-        expectedNeighbourCells.add(new Cell(2, 0));
-        expectedNeighbourCells.add(new Cell(0, 1));
-        expectedNeighbourCells.add(new Cell(2, 1));
-        expectedNeighbourCells.add(new Cell(0, 2));
-        expectedNeighbourCells.add(new Cell(1, 2));
-        expectedNeighbourCells.add(new Cell(2, 2));
+        HashSet<Cell> expectedNeighbours = new HashSet<>();
+        expectedNeighbours.add(new Cell(0, 0));
+        expectedNeighbours.add(new Cell(1, 0));
+        expectedNeighbours.add(new Cell(2, 0));
+        expectedNeighbours.add(new Cell(0, 1));
+        expectedNeighbours.add(new Cell(2, 1));
+        expectedNeighbours.add(new Cell(0, 2));
+        expectedNeighbours.add(new Cell(1, 2));
+        expectedNeighbours.add(new Cell(2, 2));
 
-        HashSet<Cell> actualNeighbourCells = cell.neighbours();
+        HashSet<Cell> actualNeighbours = cell.neighbours();
 
-        assertEquals(expectedNeighbourCells, actualNeighbourCells);
+        assertEquals(expectedNeighbours, actualNeighbours);
     }
 }
