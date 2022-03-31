@@ -17,8 +17,14 @@ public class Universe {
             if (aliveNeighbourCount == 2 || aliveNeighbourCount == 3) {
                 nextGenerationAlive.add(cell);
             }
+            for (Cell neighbour : cell.neighbours()) {
+                if (!alive.contains(neighbour)) {
+                    if (aliveNeighbourCount(neighbour) == 3) {
+                        nextGenerationAlive.add(neighbour);
+                    }
+                }
+            }
         }
-
     }
 
     public HashSet<Cell> getNextGenerationAlive() {
