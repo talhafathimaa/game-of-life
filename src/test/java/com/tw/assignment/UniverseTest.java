@@ -1,5 +1,6 @@
 package com.tw.assignment;
 
+import com.tw.assignment.exception.NegativeCoordinateException;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UniverseTest {
     @Test
-    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBlockPattern() {
+    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBlockPattern() throws NegativeCoordinateException {
         HashSet<Cell> alive = new HashSet<>();
         alive.add(new Cell(1, 1));
         alive.add(new Cell(1, 2));
@@ -28,7 +29,7 @@ public class UniverseTest {
     }
 
     @Test
-    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBoatPattern() {
+    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBoatPattern() throws NegativeCoordinateException {
         HashSet<Cell> alive = new HashSet<>();
         alive.add(new Cell(0, 1));
         alive.add(new Cell(1, 0));
@@ -50,7 +51,7 @@ public class UniverseTest {
     }
 
     @Test
-    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBlinkerPattern() {
+    void ShouldBeAbleToGetAliveCellsOfNextGenerationForBlinkerPattern() throws NegativeCoordinateException {
         HashSet<Cell> alive = new HashSet<>();
         alive.add(new Cell(1, 1));
         alive.add(new Cell(1, 0));
@@ -68,7 +69,7 @@ public class UniverseTest {
     }
 
     @Test
-    void ShouldBeAbleToGetAliveCellsOfNextGenerationForToadPattern() {
+    void ShouldBeAbleToGetAliveCellsOfNextGenerationForToadPattern() throws NegativeCoordinateException {
         HashSet<Cell> alive = new HashSet<>();
         alive.add(new Cell(1, 1));
         alive.add(new Cell(1, 2));

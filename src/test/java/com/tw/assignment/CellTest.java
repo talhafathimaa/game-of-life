@@ -1,14 +1,14 @@
 package com.tw.assignment;
 
+import com.tw.assignment.exception.NegativeCoordinateException;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CellTest {
     @Test
-    void shouldAssertThatACellIsEqualToAnotherCellWhenTheCoordinatesAreEqual() {
+    void shouldAssertThatACellIsEqualToAnotherCellWhenTheCoordinatesAreEqual() throws NegativeCoordinateException {
         Cell cell = new Cell(7, 7);
         Cell anotherCell = new Cell(7, 7);
 
@@ -16,20 +16,7 @@ public class CellTest {
     }
 
     @Test
-    void shouldReturnTheCorrectNeighbourCellsForAnyCell() {
-        Cell cell = new Cell(1, 1);
-        HashSet<Cell> expectedNeighbours = new HashSet<>();
-        expectedNeighbours.add(new Cell(0, 0));
-        expectedNeighbours.add(new Cell(1, 0));
-        expectedNeighbours.add(new Cell(2, 0));
-        expectedNeighbours.add(new Cell(0, 1));
-        expectedNeighbours.add(new Cell(2, 1));
-        expectedNeighbours.add(new Cell(0, 2));
-        expectedNeighbours.add(new Cell(1, 2));
-        expectedNeighbours.add(new Cell(2, 2));
-
-        HashSet<Cell> actualNeighbours = cell.neighbours();
-
-        assertEquals(expectedNeighbours, actualNeighbours);
+    void shouldNotCreateCellIfCoordinateIsNegative() {
+        assertThrows(NegativeCoordinateException.class, () -> new Cell(-1, 1));
     }
 }
